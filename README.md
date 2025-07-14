@@ -31,15 +31,15 @@ This project implements a portfolio optimization tool using Modern Portfolio The
 This project uses the **Markowitz Modern Portfolio Theory** to balance return and risk through the following objective function:
 
 \[
-\text{Maximize: } $ \mu^T w - \lambda \cdot w^T \Sigma w $
+\text{Maximize: } $$\mu^T w - \lambda \cdot w^T \sigma w $$
 \]
 
 Where:
 
 - \( $\mu \$) is the vector of expected returns for each asset
 - \( $w$ \) is the vector of portfolio weights (how much to invest in each asset)
-- \( $\Sigma $ \) is the covariance matrix of asset returns (i.e., risk relationships)
-- \( $\lambda $ \) is the risk aversion parameter (higher = more conservative)
+- \( $\sigma$ \) is the covariance matrix of asset returns (i.e., risk relationships)
+- \( $\lambda$ \) is the risk aversion parameter (higher = more conservative)
 
 **Interpretation:**
 
