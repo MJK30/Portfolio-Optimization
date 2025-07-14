@@ -28,25 +28,26 @@ This project implements a portfolio optimization tool using Modern Portfolio The
 
 ##  Objective Function: What Are We Optimizing?
 
-This project uses the **Markowitz Modern Portfolio Theory** to balance return and risk through the following objective function:
+This project uses **Modern Portfolio Theory** to construct a portfolio that balances expected return and risk. The core objective function is:
 
-\[
-\text{$$ Maximize \mu^T w - \lambda \cdot w^T \sigma w $$
-\]
+$$
+\text{Maximize: } \mu^T w - \lambda \cdot w^T \Sigma w
+$$
 
 Where:
 
-- \( $\mu \$) is the vector of expected returns for each asset
-- \( $w$ \) is the vector of portfolio weights (how much to invest in each asset)
-- \( $\sigma$ \) is the covariance matrix of asset returns (i.e., risk relationships)
-- \( $\lambda$ \) is the risk aversion parameter (higher = more conservative)
+- $\mu$ = vector of expected annual returns for each asset  
+- $w$ = vector of portfolio weights (how much capital is allocated to each asset)  
+- $\sigma$ = covariance matrix of asset returns (i.e., risk relationship between assets)  
+- $\lambda$ = risk aversion parameter (higher values penalize risk more heavily)
 
-**Interpretation:**
+###  Interpretation:
 
-- The goal is to **maximize return** ( \( $\mu^T w$ \) ) while **minimizing portfolio risk** ( \( $w^T \Sigma w$ \) ).
-- This gives us an **optimal trade-off** between expected gain and variance (volatility).
-- The risk aversion parameter \( $\lambda$ \) controls the balance — you can tune this to favor higher returns or lower risk.
+- The first term $\mu^Tw$ represents **expected return** of the portfolio.
+- The second term $w^T\sigma w$ represents **portfolio variance** (i.e., risk).
+- By adjusting $\lambda$, the model finds the best trade-off between maximizing return and minimizing risk.
 
-This is solved using the `cvxpy` convex optimization package under the constraints:
-- Sum of weights = 1 (fully invested portfolio)
-- Weights ≥ 0 (no short selling)
+The optimization is solved using `cvxpy` with these constraints:
+
+- $$ \sum w_i = 1 $$ (100% of capital is allocated)
+- $$ w_i \geq 0 $$ (no short selling allowed)
