@@ -31,7 +31,7 @@ This project implements a portfolio optimization tool using Modern Portfolio The
 This project uses the **Markowitz Modern Portfolio Theory** to balance return and risk through the following objective function:
 
 \[
-\text{Maximize: } $$\mu^T w - \lambda \cdot w^T \sigma w $$
+\text{$$ Maximize \mu^T w - \lambda \cdot w^T \sigma w $$
 \]
 
 Where:
@@ -43,9 +43,9 @@ Where:
 
 **Interpretation:**
 
-- The goal is to **maximize return** ( \( \mu^T w \) ) while **minimizing portfolio risk** ( \( w^T \Sigma w \) ).
+- The goal is to **maximize return** ( \( $\mu^T w$ \) ) while **minimizing portfolio risk** ( \( $w^T \Sigma w$ \) ).
 - This gives us an **optimal trade-off** between expected gain and variance (volatility).
-- The risk aversion parameter \( \lambda \) controls the balance — you can tune this to favor higher returns or lower risk.
+- The risk aversion parameter \( $\lambda$ \) controls the balance — you can tune this to favor higher returns or lower risk.
 
 This is solved using the `cvxpy` convex optimization package under the constraints:
 - Sum of weights = 1 (fully invested portfolio)
