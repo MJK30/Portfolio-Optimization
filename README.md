@@ -49,5 +49,5 @@ Where:
 
 The optimization is solved using `cvxpy` with these constraints:
 
-- $$ \sum w_i = 1 $$ (100% of capital is allocated)
-- $$ w_i \geq 0 $$ (no short selling allowed)
+- $$\sum w_i=1$$ (100% of capital is allocated)
+- $$w_i\geq 0$$ (no short selling allowed)
